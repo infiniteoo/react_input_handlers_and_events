@@ -11,11 +11,18 @@ class MovementEvents extends Component {
     }
   }
 
+  handleOnMouseMove = (e) => {
+    this.setState({
+      mousePositionX: e.nativeEvent.offsetX,
+      mousePositionY: e.nativeEvent.offsetY,
+    })
+  }
+
   render() {
     return (
       <>
       <section>
-        <div>
+        <div onMouseMove={this.handleOnMouseMove}>
           <h3>Mouse Position:</h3>
           <p>x: {this.state.mousePositionX}</p>
           <p>y: {this.state.mousePositionY}</p>
