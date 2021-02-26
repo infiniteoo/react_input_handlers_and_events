@@ -13,6 +13,7 @@ class InputEvents extends Component {
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnMouseDown = this.handleOnMouseDown.bind(this);
     this.handleOnMouseUp = this.handleOnMouseUp.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
 
   }
 
@@ -40,6 +41,12 @@ class InputEvents extends Component {
 
   }
 
+  handleOnChange(e) {
+    this.setState({
+      inputText: e.target.value
+    })
+  }
+
   render() {
     return (
       <>
@@ -58,7 +65,10 @@ class InputEvents extends Component {
 
         <section>
           <h3>Input change events:</h3>
-          <input type="text" value={this.state.inputText} />
+          <input 
+          type="text" 
+          value={this.state.inputText}
+          onChange={this.handleOnChange} />
           <p>Input value: {this.state.inputText}</p>
         </section>
 
